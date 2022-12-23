@@ -56,7 +56,7 @@ const Feed: React.FC = () => {
                 }}>
                     {selectedCategory} <span style={{ color: '#FC1503' }}>Videos</span>
                 </Typography>
-                
+            <Videos videos={videos}/>
             </Box>
         </Stack>
     )
