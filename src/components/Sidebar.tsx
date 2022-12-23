@@ -2,7 +2,12 @@ import React from 'react';
 import { Stack } from '@mui/material';
 import { categories } from '../assets/constants';
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+    selectedCategory: string;
+    setSelectedCategory: (callback: string) => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ selectedCategory, setSelectedCategory }) => {
     return (
         <Stack direction="row" sx={{
             overflowY: 'auto',
@@ -16,11 +21,19 @@ const Sidebar: React.FC = () => {
         }}>
             {categories.map((category) => {
                 return (
-                    <button className="category-btn" style={{
-                        color: 'white'
+                    <button onClick={() => setSelectedCategory(category.name)} className="category-btn" style={{
+                        color: 'white',
+                        background: category.name === selectedCategory ? '#FC1503' : 'inherit'
                     }} key={category.name}>
-                        <span>{category.icon}</span>
-                        <span>{category.name}</span>
+                        <span style={{
+                            color: category.name === selectedCategory ? 'white' : 'red',
+                            marginRight: '15px'
+                        }}>{category.icon}
+                        </span>
+                        <span style={{
+                            opacity: category.name === selectedCategory ? 1 : 0.8
+                        }}>{category.name}
+                        </span>
                     </button>
                 )
             })}
