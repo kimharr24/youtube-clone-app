@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Box, Stack, Typography } from '@mui/material';
 import Sidebar from './Sidebar';
 import Videos from './Videos';
+import Video from './VideoInterface';
 import { fetchFromAPI } from '../assets/fetchFromAPI';
 
 const Feed: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string>('New');
+    const [videos, setVideos] = useState<Video[]>([]);
 
-    // useEffect(() => {
-    //     const data = fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
-    //     console.log('changed');
-    // }, [selectedCategory])
+    useEffect(() => {
+        fetchFromAPI(selectedCategory)
+        .then((result) => {
+            setVideos(result);
+        })
+    }, [selectedCategory])
 
     return (
         <Stack direction='row' sx={{
