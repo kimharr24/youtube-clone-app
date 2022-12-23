@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Stack, Typography } from '@mui/material';
+import Sidebar from './Sidebar';
 
 const Feed: React.FC = () => {
     return (
@@ -20,7 +21,7 @@ const Feed: React.FC = () => {
                     md: 2
                 }
             }}>
-                Sidebar
+                <Sidebar />
                 <Typography variant="body2" sx={{
                     mt: 1.5,
                     color: '#fff'
