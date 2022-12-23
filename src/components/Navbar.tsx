@@ -5,7 +5,7 @@ import { logo } from '../assets/constants';
 import SearchBar from './SearchBar';
 
 const Navbar: React.FC = () => {
-    const stackStyles = {
+    const navbarStyles = {
         position: 'sticky',
         background: '#000',
         top: 0,
@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
     };
   
     return (
-        <Stack direction="row" alignItems="center" sx={stackStyles}>
+        <Stack direction="row" alignItems="center" sx={navbarStyles}>
             <Link to="/">
                 <img src={logo} alt="logo" height={45}/>
             </Link>
