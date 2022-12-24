@@ -11,7 +11,7 @@ let options = {
       order: 'date'
     },
     headers: {
-      'X-RapidAPI-Key': '1de50363ecmsh552796d819fb6c7p117751jsnfb0c8d86f58b',
+      'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_ACCESS_KEY,
       'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com'
     }
 };
